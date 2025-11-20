@@ -18,7 +18,7 @@ A simple and clean ToDo list application built with React Native and Expo.
 ToDoList/
 ├── components/
 │   ├── AddTask.tsx      # Input field for adding new tasks
-│   ├── MarkTask.tsx     # Individual task item with toggle
+│   ├── MarkTask.tsx     # Mark tasks as complete with strike-through
 │   └── ViewTasks.tsx    # Main component managing task state
 ├── screens/
 │   ├── Home.tsx
