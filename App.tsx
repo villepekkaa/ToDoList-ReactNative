@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './screens/Tasks';
+import Tasks from './screens/Tasks';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+         <Text style={styles.title}>ToDo List</Text>
+      <Tasks />
     </View>
   );
 }
@@ -13,8 +15,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 60,
+    paddingHorizontal: 16,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+ 
   },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    textAlign: 'center',
+  }
 });
