@@ -1,6 +1,6 @@
 # ToDoList - React Native App
 
-This repository contains a solution for weekly assignment 34in the course "Web- and Hybrid Technologies in Mobile Programming" at Oulu University of Applied Sciences.
+This repository contains a solution for weekly assignment 4 in the course "Web- and Hybrid Technologies in Mobile Programming" at Oulu University of Applied Sciences.
 
 A simple and clean ToDo list application built with React Native and Expo.
 
