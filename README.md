@@ -21,7 +21,6 @@ ToDoList/
 │   ├── MarkTask.tsx     # Mark tasks as complete with strike-through
 │   └── ViewTasks.tsx    # Main component managing task state
 ├── screens/
-│   ├── Home.tsx
 │   └── Tasks.tsx
 ├── types/
 │   └── Task.ts          # TypeScript type definitions
