@@ -1,54 +1,23 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
 import { Task } from '../types/Task';
 import AddTask from './AddTask';
 import MarkTask from './MarkTask';
 
-const STORAGE_KEY = 'TODO_LIST_ITEMS';
+interface ViewTasksProps {
+  tasks: Task[];
+  onAddTask: (text: string) => void;
+  onMarkTask: (id: string) => void;
+}
 
-export default function ViewTasks() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-
-  useEffect(() => {
-    loadTasks();
-  }, []);
-
-  useEffect(() => {
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
-  }, [tasks]);
-
-  const loadTasks = async () => {
-    try {
-      const json = await AsyncStorage.getItem(STORAGE_KEY);
-      if (json) setTasks(JSON.parse(json));
-    } catch (e) {
-      // handle error
-    }
-  };
-
-  const addTask = (text: string) => {
-    setTasks(prev => [
-      ...prev,
-      { id: Date.now().toString(), text, completed: false },
-    ]);
-  };
-
-  const markTask = (id: string) => {
-    setTasks(prev =>
-      prev.map(task =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
-
+export default function ViewTasks({ tasks, onAddTask, onMarkTask }: ViewTasksProps) {
   const renderItem = ({ item }: { item: Task }) => (
-    <MarkTask task={item} onToggle={markTask} />
+    <MarkTask task={item} onToggle={onMarkTask} />
   );
 
   return (
     <View style={styles.container}>
-      <AddTask onAddTask={addTask} />
+      <AddTask onAddTask={onAddTask} />
       <FlatList
         data={tasks}
         renderItem={renderItem}

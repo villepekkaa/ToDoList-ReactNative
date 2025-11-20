@@ -17,15 +17,21 @@ A simple and clean ToDo list application built with React Native and Expo.
 ```
 ToDoList/
 ├── components/
-│   ├── AddTask.tsx      # Input field for adding new tasks
-│   ├── MarkTask.tsx     # Mark tasks as complete with strike-through
-│   └── ViewTasks.tsx    # Main component managing task state
+│   ├── AddTask.tsx      # Input field component for adding new tasks
+│   ├── MarkTask.tsx     # Individual task item with strike-through toggle
+│   └── ViewTasks.tsx    # Presentational component displaying task list
 ├── screens/
-│   └── Tasks.tsx
+│   └── Tasks.tsx        # Main screen with state management and AsyncStorage
 ├── types/
 │   └── Task.ts          # TypeScript type definitions
 └── App.tsx
 ```
+
+## Architecture
+
+- **Tasks.tsx** - Central component managing application state, data persistence with AsyncStorage, and business logic
+- **ViewTasks.tsx** - Presentational component receiving data and callbacks via props
+- **AddTask.tsx** & **MarkTask.tsx** - Simple UI components calling parent callbacks
 
 ## Tech Stack
 
